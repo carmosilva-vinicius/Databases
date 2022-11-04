@@ -6,7 +6,7 @@ services:
 
   mysqldb:
     image: mysql:8.0.31
-    restart: always
+    #restart: always                    # (enable to turn on at the start)
     ports:
       - 3306:3306
     environment:
@@ -14,7 +14,7 @@ services:
 
   phpmyadmin:
     image: phpmyadmin:5.2.0
-    restart: always
+    #restart: always                    # (enable to turn on at the start)
     ports:
       - 8080:80
     environment:
