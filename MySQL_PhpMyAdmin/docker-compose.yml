@@ -3,14 +3,18 @@
 version: '3.1'
 
 services:
-
+  
   mysqldb:
     image: mysql:8.0.31
     #restart: always                    # (enable to turn on at the start)
     ports:
       - 3306:3306
     environment:
-      MYSQL_ROOT_PASSWORD: dbpassword
+      MYSQL_USER: dbuser
+      MYSQL_PASSWORD: dbpassword
+      MYSQL_ROOT_PASSWORD: dbrootpass
+    volumes:
+      - my-db:/var/lib/mysql
 
   phpmyadmin:
     image: phpmyadmin:5.2.0
@@ -19,3 +23,6 @@ services:
       - 8080:80
     environment:
       - PMA_ARBITRARY=1
+  
+volumes:
+  my-db:
