@@ -1,0 +1,16 @@
+version: '3.1'
+
+services:
+
+  sqlserver:
+    container_name: sqlserver_database
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    #restart: always                    # (enable to turn on at the start)
+    environment:
+      SA_PASSWORD: "dbpassword"
+      ACCEPT_EULA: "Y"
+      MSSQL_PID: "Developer"
+    ports:
+      - "1433:1433"
+    volumes:
+      - c:\dados\volumes\mssql:/var/opt/mssql3
